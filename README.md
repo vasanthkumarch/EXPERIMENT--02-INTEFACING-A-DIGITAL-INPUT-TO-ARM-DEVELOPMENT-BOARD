@@ -17,7 +17,9 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 
 ![image](https://user-images.githubusercontent.com/36288975/226189280-ed5dcf1d-dd8d-43ae-815d-491085f4863b.png)
 
-4.select the program name 
+ 4.select the program name
+
+ 
 ![image](https://user-images.githubusercontent.com/36288975/226189316-09832a30-4d1a-4d4f-b8ad-2dc28f137711.png)
 
 
@@ -51,13 +53,50 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 
 
 ## STM 32 CUBE PROGRAM :
+```
+NAME : NITEESH M
+REG NO: 212222230098
+```
+```
+#include "main.h"
+#include"stdbool.h"
+bool pushbutton;
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+  while (1)
+  {
+	  pushbutton=HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_13);
+	  	  	  	  if(pushbutton==0){
+	  	  	  		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_SET);
+	  	  	  		  HAL_Delay(2000);
+	  	  	  		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_RESET);
+	  	  	  		  HAL_Delay(2000);
+	  	  	  	  }
+	  	  	  	  else{
+	  	  	  		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_RESET);
+	  	  	  		  HAL_Delay(2000);
+	  	  	  	  }
+  }
+}
 
-
+```
 
 ## Output  :
- 
- 
- 
- 
+
+
+  ## STM32 BOARD ON
+ ![image](out.png)
+
+
+  ## STM32 BOARD OFF
+  ![IMG](out1.png)
+
+
+
 ## Result :
 Interfacing a digital Input (Pushbutton ) with ARM microcontroller based IOT development is executed and the results are verified.
